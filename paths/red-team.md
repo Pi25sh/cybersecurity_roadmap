@@ -16,10 +16,10 @@ Offensive security professionals simulate adversary behavior to evaluate an orga
 
 ```mermaid
 flowchart LR
-    Recon["1. Reconnaissance<br/>(OSINT, Subdomains, DNS)"] --> Scan["2. Scanning & Enum<br/>(Nmap, Dirb, Service Fingerprinting)"]
-    Scan --> Exploit["3. Exploitation<br/>(Initial Access, Web Exploits)"]
-    Exploit --> Post["4. Post-Exploitation<br/>(PrivEsc, Lateral Movement, AD)"]
-    Post --> Report["5. Reporting & Remediation<br/>(Executive Summary, POCs, Fixes)"]
+    Recon["1. Reconnaissance (OSINT, DNS)"] --> Scan["2. Scanning and Enumeration (Nmap, Services)"]
+    Scan --> Exploit["3. Exploitation (Initial Access)"]
+    Exploit --> Post["4. Post-Exploitation (PrivEsc, Lateral Movement)"]
+    Post --> Report["5. Reporting and Remediation"]
 ```
 
 ---

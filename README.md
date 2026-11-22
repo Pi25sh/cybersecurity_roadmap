@@ -34,11 +34,11 @@ Not sure where you belong? Here is a breakdown of the three primary paths based 
 
 ```mermaid
 flowchart TD
-    Start["Beginner / Exploring Security"] --> PreSec["Step 0: Pre-Security Foundations<br/>(Networking, Linux, Windows, Web Basics)"]
+    Start["Beginner / Exploring Security"] --> PreSec["Step 0: Pre-Security Foundations<br>(Networking, Linux, Windows, Web)"]
     PreSec --> Question{"Which challenge excites you most?"}
-    Question -->|"Analyzing Logs, Triaging Attacks & Forensics"| BlueTrack["🔵 Blue Team Path<br/>Defensive Operations & SOC"]
-    Question -->|"Finding Vulnerabilities, Exploitation & Pentesting"| RedTrack["🔴 Red Team Path<br/>Offensive Security & Ethical Hacking"]
-    Question -->|"Bridging Both: Attack Simulation & Detection Engineering"| PurpleTrack["🟣 Purple Team Path<br/>Adversary Emulation & Defense Tuning"]
+    Question -->|Analyzing Logs and Forensics| BlueTrack["Blue Team Path<br>(Defensive Operations and SOC)"]
+    Question -->|Finding Vulnerabilities and Exploitation| RedTrack["Red Team Path<br>(Offensive Security and Pentesting)"]
+    Question -->|Attack Simulation and Defense Tuning| PurpleTrack["Purple Team Path<br>(Adversary Emulation and Detection)"]
 ```
 
 ---
@@ -171,23 +171,24 @@ Elevate from ad-hoc testing to systematic coverage:
 Practicing in pre-built browser environments is a great start, but building your own local lab provides hands-on infrastructure experience that sets you apart in interviews:
 
 ```mermaid
-graph LR
-    subgraph Host ["Virtualization Host (Proxmox / VirtualBox / VMware)"]
-        direction TB
-        Router["Virtual Firewall / Router<br/>(pfSense / OPNsense)"]
+flowchart LR
+    subgraph Host["Virtualization Host (Proxmox / VirtualBox / VMware)"]
+        Router["Virtual Router and Firewall (pfSense)"]
         
-        subgraph InternalNet ["Internal Enterprise Subnet (192.168.10.0/24)"]
-            DC["Windows Server 2022<br/>Active Directory Domain Controller"]
-            Client["Windows 11 Enterprise<br/>Domain-Joined Client (Sysmon Installed)"]
-            SIEM["Ubuntu Server<br/>Wazuh SIEM / Splunk Free"]
+        subgraph InternalNet["Internal Corporate Network (192.168.10.0/24)"]
+            DC["Windows Server 2022 (Domain Controller)"]
+            Client["Windows 11 Client (Sysmon Installed)"]
+            SIEM["Ubuntu Server (Wazuh SIEM)"]
         end
         
-        subgraph AttackNet ["Security Testing Subnet (192.168.20.0/24)"]
-            Kali["Kali Linux / Parrot OS<br/>Security Testing Machine"]
+        subgraph AttackNet["Offensive Testing Network (192.168.20.0/24)"]
+            Kali["Kali Linux (Security Testing)"]
         end
         
-        Router --> InternalNet
-        Router --> AttackNet
+        Router --> DC
+        Router --> Client
+        Router --> SIEM
+        Router --> Kali
     end
 ```
 

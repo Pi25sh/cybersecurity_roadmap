@@ -9,16 +9,16 @@ Purple Teaming represents the convergence of offensive tactics and defensive tel
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Red as 🔴 Red Operator / Emulation
-    actor Blue as 🔵 Blue Analyst / Defender
-    participant Sensor as 🖥️ Endpoint / SIEM / EDR
+    actor Red as Red Operator (Emulation)
+    actor Blue as Blue Analyst (Defender)
+    participant Sensor as Endpoint / SIEM / EDR
     
-    Red->>Sensor: Execute TTP (e.g., T1003.001 LSASS Dump)
-    Blue->>Sensor: Inspect Telemetry & Alerts
-    alt Telemetry Detected & Alerted
+    Red->>Sensor: Execute TTP (e.g. T1003.001 LSASS Dump)
+    Blue->>Sensor: Inspect Telemetry and Alerts
+    alt Telemetry Detected and Alerted
         Blue-->>Red: Validated: Alert fired with High confidence
     else Telemetry Missing / Blind Spot
-        Blue->>Blue: Develop Sigma Rule & Sysmon/EDR Filter
+        Blue->>Blue: Develop Sigma Rule and Sysmon/EDR Filter
         Blue->>Sensor: Deploy New Detection Logic
         Red->>Sensor: Re-test TTP (Verification)
         Blue-->>Red: Confirmed: Detection Verified
